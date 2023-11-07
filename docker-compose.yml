@@ -1,0 +1,22 @@
+version: '3' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  frontend:
+    image: law_vue_frontend
+    build: ./frontend
+    container_name: law_vue_frontend
+
+    volumes:
+      - ./frontend/project:/home/project
+    expose:
+      - "8080"
+  backend:
+    image: law_flask_backend
+    build: ./backend
+    container_name: law_flask_backend
+    volumes:
+      - ./backend/src:/usr/src
+    ports:
+      - '6060:6060'
+    command: 'bash /usr/start.sh'
