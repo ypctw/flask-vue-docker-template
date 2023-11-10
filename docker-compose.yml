@@ -3,18 +3,18 @@ version: '3' # specify docker-compose version
 # Define the services/containers to be run
 services:
   frontend:
-    image: law_vue_frontend
+    image: frontend
     build: ./frontend
-    container_name: law_vue_frontend
+    container_name: frontend
 
     volumes:
       - ./frontend/project:/home/project
     ports:
       - '8080:8080'
   backend:
-    image: law_flask_backend
+    image: backend
     build: ./backend
-    container_name: law_flask_backend
+    container_name: backend
     volumes:
       - ./backend/src:/usr/src
     ports:
